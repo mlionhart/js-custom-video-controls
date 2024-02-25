@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en-gb">
+  <head>
+  	<meta charset="utf-8">
+  	<title>Video player example</title>
+  	<link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <!-- whole player is wrapped in a div so it can be styled as one unit if needed -->
+    <div class="player">
+      <!-- video element contains two <source> elems so that different 
+        formats can be loaded depending on browser support -->
+      <video controls>
+        <source src="video/sintel-short.mp4" type="video/mp4">
+        <source src="video/sintel-short.mp4" type="video/webm">
+        <!-- fallback content here -->
+      </video>
+      <!-- each button has a data-icon attr for defining what icon should be shown on 
+        each button, an aria-label attr to provide an understandable description of each 
+      button, since we're not providing a human-readable label inside the tags. the contents
+      of aria-label attrs are read out by screen readers whend their users focus on the 
+      elements that contain them. -->
+      <div class="controls">
+        <button class="play" data-icon="P" aria-label="play pause toggle"></button>
+        <button class="stop" data-icon="S" aria-label="stop"></button>
+        <!-- timer div to report the elapsed time when the video is playing. Just for fun,
+        we are providing two reporting mechanisms - a <span> containing the elapsed time in
+        min and sec, and an extra <div> that we will use to create a horizontal indicator bar
+        that gets longer as the time elapses. -->
+        <div class="timer"><div></div><span aria-label="timer">00:00:00</span></div>
+        <button class="rwd" data-icon="B" aria-label="rewind"></button>
+        <button class="fwd" data-icon="F" aria-label="fast forward"></button>
+      </div>
+    </div>
+    <p>Sintel &copy; copyright Blender Foundation | <a href="http://www.sintel.org">www.sintel.org</a>.</p>
+    <script src="custom-player.js"></script>
+  </body>
+</html>
